@@ -122,6 +122,11 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
+		// 脚手架
+		'Way\Generators\GeneratorsServiceProvider',
+		// 权限
+		'Cartalyst\Sentry\SentryServiceProvider',
+
 	),
 
 	/*
@@ -188,6 +193,9 @@ return array(
 		'URL'               => 'Illuminate\Support\Facades\URL',
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
+
+		// 权限
+		'Sentry' => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
 
 	),
 
