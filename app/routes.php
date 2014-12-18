@@ -13,5 +13,9 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return "aaaaaa";//View::make('hello');
 });
+
+Route::get('users', ['as' => 'users', 'uses' => 'UserController@index']);
+Route::get('users/create', ['as' => 'users.create', 'uses' => 'UserController@create']);
+Route::post('users/store', ['as' => 'users.store', 'uses' => 'UserController@store']);

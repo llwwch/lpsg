@@ -24,10 +24,10 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
     protected $hidden = array('password', 'remember_token');
 
     protected $enableOnSearch = [
-        ['id, activated, activation_code, activated_at, last_login, created_at, updated_at'],
+        ['id, username, activated, activation_code, activated_at, last_login, created_at, updated_at'],
     ];
 
-    public function list()
+    public function lists($data)
     {
         return $this->inputSearch(User::query(), $data)->orderBy('id', 'desc');
     }
@@ -50,11 +50,11 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
                 'password' => $data['password'],
                 'username' => $data['username'],
                 'realname' => $data['realname'],
-                'activated' => $data['activated']=='1' ? 1 : 0;
+                'activated' => $data['activated']=='1' ? 1 : 0,
             ));
 
-            $group = Sentry::findGroupById($data['group_id']);
-            $user->addGroup($group);
+            // $group = Sentry::findGroupById($data['group_id']);
+            // $user->addGroup($group);
             Session::flash('tips', ['success' => true, 'message' => "add user success"]);
 
             //add log
@@ -67,6 +67,44 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
         } catch (Cartalyst\Sentry\Groups\GroupNotFoundException $e) {
             Session::flash('tips', ['success' => false, 'message' => "group none"]);
         }
+    }
+
+    public function changePassword($id, $newPassword)
+    {
+        $user = Sentry::findUserById($id);
+        $user->attemptResetPassword($user->getResetPasswordCode(), $newPassword);
+    }
+
+    public function addOperator($data)
+    {
+        foreach($data['data'] as $key=>$item) {
+            if(empty($item['operator_id'])) {
+                break;
+            }
+            $user = Sentry::findUserById($item['operator_id']);
+            $data['data'][$k]['operator'] = $user->username;
+        }
+
+        return $data;
+    }
+
+    public function getUserNameByList($key=[], $list=[])
+    {
+        $ids = [];
+        foreach($list as $l) {
+            foreach($key as $k) {
+                if(!isset($ids[$l->$k])) {
+                    $ids[] = $l->$k;
+                }
+            }
+        }
+
+        $users = User::whereIn('id', $userIds)->get();
+        $names = [];
+        foreach($users as $user) {
+            $names[$user->id] = $user->username;
+        }
+        return $names;
     }
 
 }
