@@ -126,6 +126,10 @@ return array(
 		'Way\Generators\GeneratorsServiceProvider',
 		// 权限
 		'Cartalyst\Sentry\SentryServiceProvider',
+        // plupload
+        'JildertMiedema\LaravelPlupload\LaravelPluploadServiceProvider',
+        // 图片
+        'Intervention\Image\ImageServiceProvider',
 
 	),
 
@@ -196,6 +200,10 @@ return array(
 
 		// 权限
 		'Sentry' => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+        // plupload
+        'Plupload' => 'JildertMiedema\LaravelPlupload\Facades\Plupload',
+        // 图片
+        'Image' => 'Intervention\Image\Facades\Image',
 
 	),
 
