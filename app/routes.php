@@ -25,3 +25,5 @@ Route::get('images/upload', ['as'=>'images.upload', 'uses' => 'ImageController@u
 Route::post('images/store', ['as'=>'images.store', 'uses' => 'ImageController@store']);
 Route::get('images/resize', ['as'=>'images.resize', 'uses' => 'ImageController@resize']); //test
 Route::get('images/store1', ['as'=>'images.store1', 'uses' => 'ImageController@store']); //test
+
+Route::get('articles', ['as' => 'articles', 'uses' => 'ArticleController@create']);

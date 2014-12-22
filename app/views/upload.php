@@ -22,12 +22,32 @@
     <script type="text/javascript" src="<?= asset('/packages/jildertmiedema/laravel-plupload/assets/js/jquery.ui.plupload/jquery.ui.plupload.min.js') ?>" charset="UTF-8"></script>
     <script src="<?= asset('/packages/jildertmiedema/laravel-plupload/assets/js/i18n/zh_CN.js') ?>" type="text/javascript"></script>
 
+
+    <script type="text/javascript" src="<?= asset('packages/tinymce/tinymce/tinymce.min.js') ?>"></script>
+    <script type="text/javascript">
+    tinymce.init({
+        selector: "textarea",
+        plugins: [
+            "advlist autolink lists link image charmap print preview anchor",
+            "searchreplace visualblocks code fullscreen",
+            "insertdatetime media table contextmenu paste moxiemanager"
+        ],
+        toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+    });
+    </script>
+
+
+
 </head>
 <body>
 
 <div id="uploader">
     <p>Your browser doesn't have Flash, Silverlight or HTML5 support.</p>
 </div>
+
+<form method="post" action="somepage">
+        <textarea name="content" style="width:100%"></textarea>
+    </form>
 
 <script type="text/javascript">
     // Initialize the widget when the DOM is ready

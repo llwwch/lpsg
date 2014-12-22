@@ -5,7 +5,8 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "laravel/framework": "4.2.*"
+        "laravel/framework": "4.2.*",
+        "barryvdh/laravel-elfinder": "0.2.*"
     },
     "require-dev": {
         "way/generators": "~2.0",
@@ -15,7 +16,8 @@
         "jildertmiedema/laravel-plupload": "dev-master",
         "itsgoingd/clockwork": "1.*",
         "bankdev/logviewer": "dev-master",
-        "intervention/image": "2.0.15"
+        "intervention/image": "2.0.15",
+        "tinymce/tinymce": "dev-master"
     },
     "autoload": {
         "classmap": [
