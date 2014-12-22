@@ -27,3 +27,7 @@ Route::get('images/resize', ['as'=>'images.resize', 'uses' => 'ImageController@r
 Route::get('images/store1', ['as'=>'images.store1', 'uses' => 'ImageController@store']); //test
 
 Route::get('articles', ['as' => 'articles', 'uses' => 'ArticleController@create']);
+
+Route::get('elfinder', 'Barryvdh\Elfinder\ElfinderController@showIndex');
+Route::any('elfinder/connector', 'Barryvdh\Elfinder\ElfinderController@showConnector');
+Route::get('elfinder/tinymce', ['as' => 'elfinder.tinymce', 'uses' => 'Barryvdh\Elfinder\ElfinderController@showTinyMCE4']);
