@@ -36,6 +36,13 @@
             }
         }
 
+        // say you want to disable only a couple of commands
+        var myCommands = elFinder.prototype._options.commands;
+        var disabled = ['mkdir', 'upload'];
+        $.each(disabled, function(i, cmd) {
+            (idx = $.inArray(cmd, myCommands)) !== -1 && myCommands.splice(idx,1);
+        });
+
         $().ready(function() {
             var elf = $('#elfinder').elfinder({
                 // set your elFinder options here
@@ -48,7 +55,8 @@
                 url: '<?= URL::action('Barryvdh\Elfinder\ElfinderController@showConnector') ?>',  // connector URL
                 getFileCallback: function(file) { // editor callback
                     FileBrowserDialogue.mySubmit(file.url); // pass selected file path to TinyMCE
-                }
+                },
+                commands : myCommands
             }).elfinder('instance');
         });
     </script>

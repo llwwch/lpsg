@@ -54,7 +54,7 @@
             }
         }
 
-        tinyMCEPopup.onInit.add(FileBrowserDialogue.init, FileBrowserDialogue);
+        tinyMCEPopup.onInit.add(FileBrowserDialogue.init, FileBrowserDialogue);z
 
         $().ready(function() {
             var elf = $('#elfinder').elfinder({

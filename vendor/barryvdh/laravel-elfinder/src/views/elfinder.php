@@ -22,7 +22,7 @@
     <?php } ?>
 
     <!-- elFinder initialization (REQUIRED) -->
-    <script type="text/javascript" charset="utf-8">
+    <script type="text/javascript" charset="utf-8">z
         // Documentation for client options:
         // https://github.com/Studio-42/elFinder/wiki/Client-configuration-options
         $().ready(function() {

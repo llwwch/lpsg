@@ -14,10 +14,10 @@ class DatabaseSeeder extends Seeder {
 		// $this->call('UserTableSeeder');
 
         $user = Sentry::register([
-            'username'  =>  'admin',
             'password'  => 'bili.bili',
-            'realname'  =>  '管理员',
             'email'     => 'admin@ltbl.cn',
+            'first_name' => 'admin',
+            'last_name'  =>  '管理员',
             'activated' => 1
         ]);
 
@@ -34,7 +34,6 @@ class DatabaseSeeder extends Seeder {
                 'roles.edit' => 1,
                 'roles.delete' => 1
             ],
-            'department' => 1
         ]);
 
         // add to group
