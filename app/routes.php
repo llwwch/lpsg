@@ -20,7 +20,7 @@ Route::get('users', ['as' => 'users', 'uses' => 'UserController@index']);
 Route::get('users/create', ['as' => 'users.create', 'uses' => 'UserController@create']);
 Route::post('users/store', ['as' => 'users.store', 'uses' => 'UserController@store']);
 
-Route::get('images/lists', ['as'=>'images.lists', 'uses' => 'ImageController@lists']);
+Route::get('images/lists/{id}', ['as'=>'images.lists', 'uses' => 'ImageController@lists'])->where('id', '[0-9]+');
 Route::get('images/upload', ['as'=>'images.upload', 'uses' => 'ImageController@upload']);
 Route::post('images/store', ['as'=>'images.store', 'uses' => 'ImageController@store']);
 Route::get('images/resize', ['as'=>'images.resize', 'uses' => 'ImageController@resize']); //test
@@ -31,3 +31,6 @@ Route::get('articles', ['as' => 'articles', 'uses' => 'ArticleController@create'
 Route::get('elfinder', 'Barryvdh\Elfinder\ElfinderController@showIndex');
 Route::any('elfinder/connector', 'Barryvdh\Elfinder\ElfinderController@showConnector');
 Route::get('elfinder/tinymce', ['as' => 'elfinder.tinymce', 'uses' => 'Barryvdh\Elfinder\ElfinderController@showTinyMCE4']);
+
+Route::get('test/form', ['as' => 'test.form', 'uses' => 'TestController@testForm']);
+Route::delete('test/submit/{id}', ['as' => 'test.submit', 'uses' => 'TestController@testSubmit'])->where('id', '[0-9]+');

@@ -9,10 +9,10 @@
 class ImageController extends BaseController
 {
 
-    public function lists()
+    public function lists($id)
     {
-        $images = Images::where('user_id', 1)->get()->toArray();
-        return json_encode($images);
+        $images = Images::where('user_id', $id)->get()->toArray();
+        return View::make('images.lists', ['images'=>$images]);
     }
 
     public function upload()
