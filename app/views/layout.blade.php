@@ -7,17 +7,16 @@
    <script src="{{ asset('assets/bower/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 </head>
 <body>
-   @section('sidebar')
-            This is the master sidebar.
-        @show
+   @include('header')
+
    <div class="continer">
       <div class="row">
-         <div class="col-md-2">asdf</div>
-         <div class="col-md-7">
+         <div class="col-md-1">asdf</div>
+         <div class="col-md-8">
             @yield('content')
          </div>
       </div>
-         <div class="col-md-3">asdf</div>
+      <div class="col-md-3">asdf</div>
       
    </div>
 </body>

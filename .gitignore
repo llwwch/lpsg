@@ -8,3 +8,5 @@ Thumbs.db
 .idea
 public/files/*
 public/upload/*
+
+tests/_output/*

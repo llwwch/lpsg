@@ -6,7 +6,8 @@
     "type": "project",
     "require": {
         "laravel/framework": "4.2.*",
-        "barryvdh/laravel-elfinder": "0.2.*"
+        "barryvdh/laravel-elfinder": "0.2.*",
+        "codeception/codeception": "*"
     },
     "require-dev": {
         "way/generators": "~2.0",

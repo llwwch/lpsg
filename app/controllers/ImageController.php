@@ -9,7 +9,7 @@
 class ImageController extends BaseController
 {
 
-    public function lists($id)
+    public function lists($id=1)
     {
         $images = Images::where('user_id', $id)->get()->toArray();
         return View::make('images.lists', ['images'=>$images]);

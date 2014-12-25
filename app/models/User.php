@@ -42,20 +42,25 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
         return $names;
     }
 
+    public function test() {
+        return ["hack"];
+    }
+
     public function store($data)
     {
         try {
             $user = Sentry::createUser(array(
                 'email' => $data['email'],
                 'password' => $data['password'],
-                'username' => $data['username'],
-                'realname' => $data['realname'],
+                'first_name' => $data['first_name'],
+                'last_name' => $data['last_name'],
                 'activated' => $data['activated']=='1' ? 1 : 0,
             ));
 
             // $group = Sentry::findGroupById($data['group_id']);
             // $user->addGroup($group);
             Session::flash('tips', ['success' => true, 'message' => "add user success"]);
+            return true;
 
             //add log
         } catch (Cartalyst\Sentry\Users\LoginRequiredException $e) {
@@ -67,6 +72,7 @@ class User extends BaseModel implements UserInterface, RemindableInterface {
         } catch (Cartalyst\Sentry\Groups\GroupNotFoundException $e) {
             Session::flash('tips', ['success' => false, 'message' => "group none"]);
         }
+        return true;
     }
 
     public function changePassword($id, $newPassword)

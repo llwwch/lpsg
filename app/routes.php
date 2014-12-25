@@ -19,7 +19,12 @@ Route::get('/', function()
 Route::get('users', ['as' => 'users', 'uses' => 'UserController@index']);
 Route::get('users/create', ['as' => 'users.create', 'uses' => 'UserController@create']);
 Route::post('users/store', ['as' => 'users.store', 'uses' => 'UserController@store']);
+Route::post('users/add', ['as' => 'users.add', 'uses' => 'UserController@add']);
 
+Route::post('validation/users/email', ['as' => 'validation.users.email', 'uses'=>'UserController@emailValidate']);
+Route::post('validation/users/username', ['as' => 'validation.users.username', 'uses'=>'UserController@usernameValidate']);
+
+Route::get('images', ['as'=>'images', 'uses' => 'ImageController@lists']); //test
 Route::get('images/lists/{id}', ['as'=>'images.lists', 'uses' => 'ImageController@lists'])->where('id', '[0-9]+');
 Route::get('images/upload', ['as'=>'images.upload', 'uses' => 'ImageController@upload']);
 Route::post('images/store', ['as'=>'images.store', 'uses' => 'ImageController@store']);
